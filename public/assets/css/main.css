@@ -1,0 +1,307 @@
+
+body{
+    background-color: #f1f1f1;
+    font-family: 'Markazi Text', serif;
+
+}
+.badge{
+	width: 50px;
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 8px;
+	border-radius:0;
+}
+
+
+.form .sumbit-log{
+
+background-color: blue;
+color: white;
+border-radius: 10px;
+}
+
+/*.log-btn:visited {*/
+  /*color: blue;*/
+/*}*/
+
+
+
+
+.title p{
+    font-size: 60px;
+    color:#666666;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.start{
+ background-color: white;
+    padding: 10px;
+}
+.tab {
+    overflow: hidden;
+    padding-bottom: 40px;
+    
+}
+.nav-link{
+    display: inline;
+}
+
+.login a {
+    background-color: inherit;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 38px;
+    color: #cecece;
+    text-decoration: none !important;
+    margin: 0px;
+    
+}
+
+
+.tabcontent {
+
+    padding: 6px 12px;   
+}
+
+
+.log-btn::after{
+    content: "|";
+    font-size: 38px;
+    color: #6c757d !important;
+    font-weight: bold;
+
+   
+}
+
+.form input{
+    width: 355px;
+        padding: 5px;
+    margin: 10px;
+
+}
+
+.dropdown-menu{
+    background-color: skyblue;
+    padding: 10px
+        
+}
+
+.dropdown-menu li a {
+    color: white
+}
+
+a > p {
+    font-size: 20px;
+    font-weight: bold
+}
+
+
+.title p{
+    font-size: 60px;
+    color:#666666;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.badgee{
+    position: absolute;
+    padding-left:5px;
+
+	border-radius:0;
+}
+
+
+.color1{
+    background-color: #f1f1f1;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.fdrop{
+    text-decoration: none;
+    border: 1px solid #ccc1c1;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.userimg{
+    height: 44px;
+    border: 1px solid #ccc1c1;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+
+
+.create-formm i {
+    margin: 10px
+}
+
+
+.create-form button  {
+    margin: 10px;
+    background-color: #FFF;
+}
+.create-formm button  {
+    margin: 10px;
+   background-color: #FFF;
+    color: #FFF;
+    background-color: blue;
+}
+
+.text-title{
+    margin-top: 10px
+}
+
+.newI{
+    background-color: white;
+    border: solid 1px blue;
+}
+
+#inputState{
+    background-color: #f1f1f1;
+ 
+}
+
+.newI input {
+    width: 300px;
+    padding: 20px
+}
+label {
+
+    font-weight: bold
+        
+}
+
+.label label{
+    margin: 8px;
+}
+
+
+.badge{
+	width: 50px;
+    position: absolute;
+    color: red;
+    margin-top: 8px;
+	border-radius:0;
+}
+
+th {
+    width: 14%;
+}
+.card-img-top{
+    height: 230px;
+}
+
+
+
+a h5{
+    float: right;
+    margin-right: 18px;
+    font-size: 15px;
+}
+
+
+
+.create-formm i {
+position: absolute;
+    color: red;
+ pointer-events: none;
+}
+
+
+.create-formm i { right: 20px;}
+
+.create-formm i { padding-left:  30px; }
+.create-formm i { padding-right: 0; }
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.inputImg{
+padding:3px;
+background:#FFF;
+border-width: 2px;
+border-style: inset;
+    width: 100%;
+    
+}
+
+
+.create-form h1 {
+    padding: 20px;
+        font-size: 60px;
+    color:#666666;
+    font-weight: bold;
+}
+
+.text-title{
+    margin-top: 10px
+}
+
+#blah{
+        width: 350px;
+    max-height: 210px
+}
+
+
+
+
+
+img{
+
+    padding-bottom: 20px;
+}
+input[type=file]{
+padding:3px;
+background:#FFF;
+width: 160px;
+border-width: 2px;
+border-style: inset;
+    
+}
+
+.create-formm input[type=file]{
+    padding:3px;
+    background:#FFF;
+    width: 160px;
+    border-width: 2px;
+    border-style: inset;
+    width: 100%;
+
+}
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.form .sumbit-sign{
+
+background-color: green;
+color: white;
+border-radius: 10px;    margin-top: 10px;
+    
+}
+
+.img-thumbnail{
+        height: 402px;
+    width: 260px;
+}
+
+
+
+
+
+
+
+
