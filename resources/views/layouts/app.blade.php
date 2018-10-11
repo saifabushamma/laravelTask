@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    @if (app()->getLocale() == 'en')
+        <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('assets/css/bs_rtl.css') }}" rel="stylesheet">
+    @endif
 
     <link href="https://fonts.googleapis.com/css?family=Markazi+Text" rel="stylesheet">
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">

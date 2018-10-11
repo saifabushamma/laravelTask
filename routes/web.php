@@ -65,6 +65,10 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/auth/signup', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/auth/signup', 'Auth\RegisterController@register')->name('saif');
 
+Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|google')->name('socialLogin');
+
+Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|google');
+
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');

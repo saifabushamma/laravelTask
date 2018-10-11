@@ -58,4 +58,6 @@ return [
     "addedby"=>'Added by',
     "comment"=>'Add your comments',
     "addC"=>'Add comment',
+
+    "loginW"=>'Login With',
 ];

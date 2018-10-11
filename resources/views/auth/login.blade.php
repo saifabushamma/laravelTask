@@ -42,8 +42,20 @@
                             <div class="col-md-12">
                                 <input class="sumbit-log text-center" type="submit" value="@lang('app.login')">
 
-
                             </div>
+
+                            <div>
+
+                                <label for="name" class="col-md-4 control-label">@lang('app.loginW')</label>
+
+                                <div class="col-md-12">
+
+                                    <a href="{{ route('socialLogin','facebook') }}" class="btn btn-social-icon btn-facebook"><i class="fab fa-facebook" style="color: blue"></i></a>
+
+                                    <a href="{{route('socialLogin','twitter') }}" class="btn btn-social-icon btn-twitter"><i class="fab fa-twitter" style="color: blue"></i></a>
+
+                                    <a href="{{route('socialLogin','google')}}" class="btn btn-social-icon btn-google-plus"><i class="fab fa-google" style="color: orangered"></i></a>
+                                </div>
                         </div>
                     </form>
                 </div>

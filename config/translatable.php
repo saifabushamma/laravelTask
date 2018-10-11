@@ -12,7 +12,7 @@ return [
     */
     'locales' => [
         'en' => 'English',
-        'ar' => 'Arabic',
+        'ar' => 'عربي',
     ],
 
     /*
