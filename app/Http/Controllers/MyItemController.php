@@ -17,6 +17,8 @@ class MyItemController extends Controller
     {
         $id = Auth::id();
         $items = Item::all()->where('users_id', $id);
+        if ($items == null)
+            abort('404');
         return view('myItem')->with('items', $items);
 
     }

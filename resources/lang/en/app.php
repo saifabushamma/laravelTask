@@ -60,4 +60,6 @@ return [
     "addC"=>'Add comment',
 
     "loginW"=>'Login With',
+
+    "adminpage"=>'Admin panel',
 ];

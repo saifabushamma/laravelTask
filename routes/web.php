@@ -14,19 +14,78 @@
 Route::get('/', function () {
     return \Illuminate\Support\Facades\Redirect::route('home');
 });
+use Illuminate\Support\Facades\Auth;
+Auth::routes();
 
 
 
 Route::post('register')->name('signup');
 
+Route::get('/admin/users/addUser', 'admin\UserController@edituser')->name('edituser');
 
 
 Route::get('/shop/home/', 'HomeController@showProducts')->name('home');
 
+//admin route
+Route::get('/admin', 'admin\mainController@showadmin')->name('admin');
+Route::get('/admin/users/editUser/{id}', 'admin\UserController@edituser')->name('edituser');
+
+Route::get('/admin/users/deleteUser/{id}', 'admin\UserController@deleteuser')->name('deleteuser');
+Route::get('/admin/users/destroyUser/{id}', 'admin\UserController@destroy')->name('destroyuser');
+
+Route::get('/admin/users/userDetails/{id}', 'admin\UserController@userdetails')->name('userdetails');
+
+Route::post('/admin/users/edituser/{id}', 'admin\UserController@submitedit')->name('submitedituser');
+
+
+
+Route::get('/admin/users/userList', 'admin\UserController@showusers')->name('userlist');
+Route::post('/admin/users/userList', 'admin\UserController@showusers')->name('userlist');
+
+Route::post('/admin/users/userList', 'admin\UserController@showuser')->name('userlists');
+Route::get('/admin/users/addUser', 'admin\UserController@addusers')->name('adduser');
+
+
+Route::post('/admin/items/addUser', 'admin\UserController@store')->name('addusers');
+Route::get('/admin/items/deleteItem/{id}', 'admin\ItemController@deleteitem')->name('deleteitem');
+Route::get('/admin/items/destroyitem/{id}', 'admin\ItemController@destroy')->name('destroyitem');
+
+
+Route::get('/admin/items/itemDetails/{id}', 'admin\ItemController@itemdetails')->name('itemdetails');
+Route::get('/admin/items/itemList', 'admin\ItemController@showitem')->name('itemlist')
+;
+Route::get('/admin/items/addItems', 'admin\ItemController@additems')->name('additem');
+Route::post('/admin/items/addItems', 'admin\ItemController@additems')->name('additems');
+
+
+Route::post('/admin/items/addItems', 'admin\ItemController@createNewItem')->name('additemss');
+Route::get('/admin/items/editItem/{id}', 'admin\ItemController@edititem')->name('edititem');
+
+Route::post('/admin/items/editItem/{id}', 'admin\ItemController@submitedit')->name('submitedit');
+
+
+
+
+
+Route::get('/admin/category/editCategory/{id}', 'admin\CategoryController@editcategory')->name('editcategory');
+Route::get('/admin/category/deleteCategory/{id}', 'admin\CategoryController@deletecategory')->name('deletecategory');
+Route::get('/admin/category/destroyCategory/{id}', 'admin\CategoryController@destroy')->name('destroycategory');
+
+
+Route::get('/admin/category/categoryDetails/{id}', 'admin\CategoryController@categorydetails')->name('categorydetails');
+Route::get('/admin/category/categoriesList', 'admin\CategoryController@showcategory')->name('catlist');
+
+Route::get('/admin/category/addCategories', 'admin\CategoryController@addcategory')->name('addcat');
+
+Route::post('/admin/category/editcategory/{id}', 'admin\CategoryController@submiteditcat')->name('submiteditcat');
+Route::post('/admin/category/addCategories', 'admin\CategoryController@addNewCategory')->name('addcategory');
+Route::get('/admin/category/editCategory/{id}', 'admin\CategoryController@editcategory')->name('editcategory');
+
+
+
+
+
 Route::get('/shop/home/{id}', 'HomeController@showProducts')->name('filter');
-
-
-
 
 Route::get('/account/profile/main', "mainController@myProfile") ->name('myprofile');
 Route::get('/account/profile/edit', "Editprofile@editprofileForm") ->name('editprofile');
@@ -69,8 +128,8 @@ Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social'
 
 Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|google');
 
+
+
+
 // Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+

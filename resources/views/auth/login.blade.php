@@ -41,9 +41,13 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input class="sumbit-log text-center" type="submit" value="@lang('app.login')">
-
                             </div>
+                            <div class="col-md-12">
 
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                            </div>
                             <div>
 
                                 <label for="name" class="col-md-4 control-label">@lang('app.loginW')</label>
@@ -56,6 +60,7 @@
 
                                     <a href="{{route('socialLogin','google')}}" class="btn btn-social-icon btn-google-plus"><i class="fab fa-google" style="color: orangered"></i></a>
                                 </div>
+                        </div>
                         </div>
                     </form>
                 </div>

@@ -21,6 +21,8 @@ class Editprofile extends Controller
     {
         $id = Auth::id();
         $user = User::find($id);
+        if ($user == null)
+            abort('404');
         return view('editprofile')->with('user', $user);
     }
 

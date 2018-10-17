@@ -36,7 +36,7 @@ border-radius: 10px;
 
 .start{
  background-color: white;
-    padding: 10px;
+
 }
 .tab {
     overflow: hidden;
@@ -180,6 +180,7 @@ label {
 
 .label label{
     margin: 8px;
+
 }
 
 

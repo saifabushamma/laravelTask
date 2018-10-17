@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -58,19 +59,32 @@ class LoginController extends Controller
     {
 
         $userSocial = Socialite::driver($social)->user();
-        $user = User::where(['email' => $userSocial->getEmail()])->first();
 
-        if($user){
+        if ($userSocial->getEmail() != null) {
 
-            Auth::login($user);
+            $user = User::where(['email' => $userSocial->getEmail()])->first();
 
-            return Redirect::route('home');
+            if ($user) {
 
+                Auth::login($user);
+
+                return Redirect::route('home');
+
+            } else {
+
+                $user = new User;
+                $user->username = $userSocial->getName();
+                $user->email = $userSocial->getEmail();
+                $user->password = Hash::make(str_random(8));
+                $user->save();
+
+                Auth::Login($user);
+                return Redirect::route('home');
+            }
         }else{
-
-            return view('auth.register',['email' => $userSocial->getEmail()]);
-
+            return Redirect::route('home');
         }
-
     }
+
+
 }

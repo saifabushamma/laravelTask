@@ -150,6 +150,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Laratrust\LaratrustServiceProvider::class,
+
 
 
 
@@ -217,6 +219,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Laratrust'   => Laratrust\LaratrustFacade::class,
+
 
     ],
 

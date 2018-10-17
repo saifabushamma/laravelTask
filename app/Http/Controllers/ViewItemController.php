@@ -18,6 +18,8 @@ class ViewItemController extends Controller
 
 
             $item = Item::find($id);
+            if ($item == null)
+                abort('404');
             $category = Category::category()->where('categoryID',$item->category_categoryID)->first();
             $user = User::find($item->users_id);
             $comments = Comment::all()->where('items_itemID', $id);

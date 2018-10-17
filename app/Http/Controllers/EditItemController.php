@@ -19,6 +19,8 @@ class EditItemController extends Controller
     {       $itemID = Item::find($itemID);
 
             $categories = Category::category()->get();
+        if ($itemID == null)
+            abort('404');
         return view('editItem')->with('item',$itemID)
             ->with('categories',$categories);
     }
