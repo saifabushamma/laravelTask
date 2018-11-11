@@ -34,7 +34,7 @@
                                         <i class="fas fa-dollar-sign"></i>
                                        @lang('app.price')
                                     </td>
-                                    <td>:${{ $item->price }}</td>
+                                    <td>:{{\App\Currency::ConvertFromUSD($item->price)}} {{\Session::get('currency')[0]->currency_en}}</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -48,7 +48,7 @@
                                         <i class="fas fa-tags"></i>
                                         @lang('app.cate')
                                     </td>
-                                    <td> {{$category->name}}</td>
+                                    <td> @if(isset($category)){{$category->name}}@endif</td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -57,9 +57,21 @@
                                     </td>
                                     <td>{{$user->userName}}</td>
                                 </tr>
+                                <tr>
+
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <form method="post" action="{{Route('AddToCart',array($item->itemID))}}">
+                        {{csrf_field()}}
+
+                        <td>
+                            <input type="number" class="form-control" name="quantity">
+                        <td>
+                            <button type="submit">Add to cart</button>
+                        </td>
+                        </form>
                     </div>
             </div>
 

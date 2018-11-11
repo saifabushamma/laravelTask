@@ -9,17 +9,17 @@
                 <a class="sign-btn text-muted" href="{{ route('register') }}">@lang('app.signup')</a>
 
                 <div class="panel-body bg-light">
-                    <form class="form text-center" method="POST" action="{{ route('login') }}">
+                    <form class="form text-center" method="POST" action="{{ route('login') }}" >
                         {{ csrf_field() }}
 
-                        <div class="form-group row justify-content-center{{ $errors->has('userName') ? ' has-error' : '' }}">
+                        <div class="form-group row justify-content-center{{ $errors->has('username') ? ' has-error' : '' }}">
 
                             <div >
-                                <input id="text" type="text" class="form-control" name="userName" value="{{ old('userName') }}" placeholder="@lang('app.placeholderUN')" required autofocus>
+                                <input id="text" type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="@lang('app.placeholderUN')" required autofocus>
 
-                                @if ($errors->has('userName'))
+                                @if ($errors->has('username'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('userName') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -45,7 +45,7 @@
                             <div class="col-md-12">
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
+                                {{ __('Forgot Your Password') }}
                             </a>
                             </div>
                             <div>

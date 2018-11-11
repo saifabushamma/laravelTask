@@ -29,21 +29,21 @@ class Editprofile extends Controller
 
     public function editprofile(Request $request)
     {
+
+
         $id = Auth::id();
         $user = User::find($id);
         $user->userName = $request->input('userName');
         $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->image = $request->input('image');
+        if ($request->input('password') == $user->password) {
 
-        if($request->hasfile('image'))
-        {
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename =time().'.'.$extension;
-            $file->move('public/img/', $filename);
-            $user->image = $filename;
+        }else{
+            $user->password = Hash::make($request->input('password'));
+
         }
+        $user->image = User::storeFiles('image');
+
+
 
         $user->save();
         return redirect(route('myprofile'));

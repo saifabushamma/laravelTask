@@ -34,6 +34,32 @@
                                         <a href="{{route('edititem', $item->itemID)}}" class="btn btn-primary" >Edit</a>
                                         <a href="{{route('itemdetails',$item->itemID)}}" class="btn btn-success">Details</a>
                                        <a href="{{route('deleteitem',$item->itemID)}}" class="btn btn-danger">Delete</a>
+
+
+                                        @if($item->status==0)
+
+                                            <div class="btn-group">
+
+                                                <button type="button" style="width: 105px;"class="btn btn-success dropdown-toggle" data-toggle="dropdown">Activate
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+
+                                                <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                    <li><a href="{{route('item_status',$item->itemID)}}" class="" >Deactivate</a></li>
+                                                </ul>
+                                            </div>
+                                        @else
+                                            <div class="btn-group">
+                                                <button type="button" style="width: 105px;" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Deactivate
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                    <li class=""><a href="{{route('item_status',$item->itemID)}}" >Activate</a></li>
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </td>
 
                                 </tr>

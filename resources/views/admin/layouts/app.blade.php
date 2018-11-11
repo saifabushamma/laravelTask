@@ -27,17 +27,12 @@
     <link rel="stylesheet" href="{{asset('/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{asset('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-
-
-    <script src="{{asset('https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')}}"></script>
-    <script src="{{asset('https://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script>
-
-    <![endif]-->
+    <link rel="stylesheet" href="{{asset('/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-black sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
@@ -75,7 +70,7 @@
                 <li class="header">Terkwaz</li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-circle-o"></i><span>Mangae users</span>
+                        <i class="fa fa-circle-o"></i><span>Manage users</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -89,7 +84,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-circle-o"></i><span>Mangae items</span>
+                        <i class="fa fa-circle-o"></i><span>Manage items</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -103,7 +98,7 @@
 
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-circle-o"></i><span>Mangae categories</span>
+                        <i class="fa fa-circle-o"></i><span>Manage categories</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -112,6 +107,28 @@
                         <li class="active"><a href={{route('catlist')}}><i class="fa fa-circle-o"></i> categories list</a></li>
                         <li><a href={{route('addcat')}}><i class="fa fa-circle-o"></i> Add category</a></li>
                     </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-circle-o"></i><span>Manage admins</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href={{route('adminlist')}}><i class="fa fa-circle-o"></i> admins list</a></li>
+                        <li><a href={{route('addadmin')}}><i class="fa fa-circle-o"></i> Add admin</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href={{route('home')}}>
+                        <i class="fa fa-circle"></i><span>Home</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
                 </li>
 
             </ul>
@@ -133,9 +150,6 @@
     <footer class="main-footer">
         <strong>Designed & developed by <a href="http://www.terkwaz.com/">Terkwaz</a></strong>
     </footer>
-    <div class="control-sidebar-bg"></div>
-
-
 </div>
 
 <!-- ./wrapper -->
@@ -185,6 +199,20 @@
 <script src="{{ asset('assets/js/app.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/dist/js/demo.js')}}"></script>
+<script src="{{asset('/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script>
+    $(function () {
+        $('#example1').DataTable({
+            'paging'      : true,
+            'lengthChange': true,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : true
+        })
+    })
+</script>
 
 </body>
 </html>

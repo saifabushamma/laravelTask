@@ -121,5 +121,31 @@ class ItemController extends Controller
 
 
 
+    public function status($itemID)
+    {
+        try {
+            $item = Item::find($itemID);
+            if( isset($item)==NULL)
+            {
+                abort(404);
+            }
 
+            if($item->deleted_by!=NULL )
+            {
+                abort(404);
+            }
+
+
+            if ($item->status == 1)
+                $item->status = 0;
+            else
+                $item->status = 1;
+            $item->save();
+            return redirect()->route('itemlist');
+        } catch (Exception $e) {
+            return redirect()->route('home');
+
+        }
+
+    }
 }

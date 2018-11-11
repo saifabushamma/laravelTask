@@ -30,6 +30,31 @@
                                             <a href="{{route('editcategory', $category->categoryID)}}" class="btn btn-primary" >Edit</a>
                                             <a href="{{route('categorydetails', $category->categoryID)}}" class="btn btn-success">Details</a>
                                             <a href="{{route('deletecategory', $category->categoryID)}}" class="btn btn-danger">Delete</a>
+
+                                            @if($category->status==0)
+
+                                                <div class="btn-group">
+
+                                                    <button type="button" style="width: 105px;"class="btn btn-success dropdown-toggle" data-toggle="dropdown">Activate
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+
+                                                    <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                        <li><a href="{{route('cat_status',$category->categoryID)}}" class="" >Deactivate</a></li>
+                                                    </ul>
+                                                </div>
+                                            @else
+                                                <div class="btn-group">
+                                                    <button type="button" style="width: 105px;" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Deactivate
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                        <li class=""><a href="{{route('cat_status',$category->categoryID)}}" >Activate</a></li>
+                                                    </ul>
+                                                </div>
+                                            @endif
                                         </td>
 
                                     </tr>

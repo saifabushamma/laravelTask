@@ -63,17 +63,13 @@ class UserController extends Controller
             abort('404');
         $user->userName = $request->input('userName');
         $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->image = $request->input('image');
+        if ($request->input('password') == $user->password) {
 
-        if($request->hasfile('image'))
-        {
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension(); // getting image extension
-            $filename =time().'.'.$extension;
-            $file->move('public/img/', $filename);
-            $user->image = $filename;
+        }else{
+            $user->password = Hash::make($request->input('password'));
+
         }
+        $user->image = User::storeFiles('image');
 
         $user->save();
         return redirect(route('userlist'));
@@ -103,6 +99,32 @@ class UserController extends Controller
 
     }
 
+    public function status($id)
+    {
+        try {
+            $user = User::find($id);
+            if( isset($user)==NULL)
+            {
+                abort(404);
+            }
 
-        //
+         if($user->deleted_by!=NULL )
+         {
+             abort(404);
+            }
+
+
+            if ($user->status == 1)
+                $user->status = 0;
+            else
+                $user->status = 1;
+            $user->save();
+            return redirect()->route('userlist');
+        } catch (Exception $e) {
+            return redirect()->route('home');
+
+        }
+
+    }
+
 }

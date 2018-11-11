@@ -26,6 +26,7 @@ class CategoryController extends Controller
         $newCategory = new Category();
         $newCategory->name_en = $request->input('name_en');
         $newCategory->name_ar = $request->input('name_ar');
+        $newCategory->users_id = Auth::id();
         $newCategory->save();
         return redirect()->route('addcategory');
     }
@@ -70,6 +71,36 @@ return view('admin.category.edit')->with('categories', $categories);
         if ($categories == null)
             abort('404');
         return view('admin.category.details')->with('categories', $categories);
+
+    }
+
+
+
+
+    public function status($categoryID)
+    {
+        try {
+            $categories = Category::find($categoryID);
+            if( isset($categories)==NULL)
+            {
+                abort(404);
+            }
+
+            if($categories->deleted_by!=NULL )
+            {
+                abort(404);
+            }
+
+            if ($categories->status == 1)
+                $categories->status = 0;
+            else
+                $categories->status = 1;
+            $categories->save();
+            return redirect()->route('catlist');
+        } catch (Exception $e) {
+            return redirect()->route('home');
+
+        }
 
     }
     }

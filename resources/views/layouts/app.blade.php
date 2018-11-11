@@ -44,20 +44,32 @@
                             </ul>
                         @endif
                     @endforeach
+
                     <div class="col-sm text-center text-sm-left">
 
                                 <!-- Authentication Links -->
 
                                 @if (Auth::guest())
+
                             <ul class="nav col-sm text-center justify-content-end nav-item">
+                                <li class="dropdown ">
+                                    <a href="#" class="dropdown-toggle text-muted" style="text-decoration: none;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Currency ({{\Illuminate\Support\Facades\Session::get('currency')[0]->currency_en}})  <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        @foreach($currencies AS $currency)
+                                            <li><a href="{{Route('changeCurrency',array($currency->currencyID))}}">{{$currency->currency_en}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </li>
 
                             <li><a class="nav-link  d-inline pr-0 " href="{{ route('login') }}">@lang('app.login')/</a></li>
                                     <li><a class="nav-link pl-0 d-inline pr-0" href="{{ route('register') }}">@lang('app.signup')</a></li>
                             </ul>
+
                                 @else
                             <ul class="nav col-sm text-center  nav-item">
                                 <li>
-                                <img class="userimg img-fluid img-thumbnail " src='{{ asset('public/img/'.$user->image) }}' style="height: 35px; width: 35px;" ></li>
+                                <img class="userimg img-fluid img-thumbnail " src='{{ asset($user->image) }}' style="height: 35px; width: 35px;" ></li>
                             <li class="dropdown fdrop">
 
                                         <a href="#" class="dropdown-toggle  text-muted" style="text-decoration: none;" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -92,12 +104,22 @@
 
                                                 </li>
 
+
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
                                                 </form>
                                             </li>
                                         </ul>
                                     </li>
+                                <li class="dropdown fdrop ">
+                                    <a href="#" class="dropdown-toggle text-muted" style="text-decoration: none;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Currency ({{\Illuminate\Support\Facades\Session::get('currency')[0]->currency_en}})  <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        @foreach($currencies AS $currency)
+                                            <li><a href="{{Route('changeCurrency',array($currency->currencyID))}}">{{$currency->currency_en}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </li>
                                 @endif
                             </ul>
                     </div>

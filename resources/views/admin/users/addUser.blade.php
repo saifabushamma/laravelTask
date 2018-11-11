@@ -9,7 +9,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <form class="form"  method="POST" action="{{ route('addusers') }}">
+            <form class="form"  method="POST" action="{{ route('addusers') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="row">
                 <div class="col-md-6">

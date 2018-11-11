@@ -39,3 +39,5 @@ myprice.onkeyup = function(){
     'use strict';
     mypricelive.textContent = "$"+ this.value;
 };
+
+

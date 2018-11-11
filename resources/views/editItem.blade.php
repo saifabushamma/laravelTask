@@ -59,11 +59,11 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-3 text-right">
-                                                <label for="country" >@lang('app.price')</label>
+                                                <label for="country" >@lang('app.country')</label>
                                             </div>
                                             <div class="col-md-9">
                                                 <i class="fas fa-asterisk"></i>
-                                                <input class="form-control required"  id="pass" type="text"  name="country" value="{{ $item->country }}" required autofocus>
+                                                <input class="form-control required"  id="country" type="text"  name="country" value="{{ $item->country }}" required autofocus>
 
                                             </div>
                                         </div>
@@ -121,10 +121,6 @@
                                 </div>
                             </form>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>

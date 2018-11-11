@@ -27,8 +27,6 @@
                     <div class="box-footer">
                         <a href="{{route('catlist')}}" type="submit" class="btn btn-default">Back </a>
                     </div>
-
-
             </div>
         </div>
     </div>

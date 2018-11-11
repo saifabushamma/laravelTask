@@ -14,7 +14,7 @@
                 <div class="panel-body">
 
                     <div id="Signup" class="tabcontent text-center">
-                        <form class="form text-center"  method="POST" action="{{ route('saif') }}">
+                        <form class="form text-center"  method="POST" action="{{ route('saif') }}"  enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div>
                                 <input type="text" name="username" placeholder="@lang('app.placeholderUN')">

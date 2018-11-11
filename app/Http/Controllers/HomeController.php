@@ -28,7 +28,7 @@ class HomeController extends Controller
         }else
         {
 
-            $items = Item::all();
+            $items = Item::where('status', '=', '0')->get();
             return view('home')->with('items', $items);
 
 

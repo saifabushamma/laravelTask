@@ -89,7 +89,7 @@
                                     <div class="col-md-4">
                                         <div class="row">
                                             <div class="card">
-                                                <img id="blah"  src='{{ asset('public/img/'.$user->image) }}' alt="your image"  />
+                                                <img id="blah"  src='{{ asset($user->image) }}' alt="your image"  />
 
                                             </div>
                                         </div>

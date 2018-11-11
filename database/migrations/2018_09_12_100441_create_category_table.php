@@ -18,9 +18,29 @@ class CreateCategoryTable extends Migration
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
             $table->increments('categoryID');
-            $table->string('categoryName');
+            $table->string('name_en');
+            $table->string('name_ar');
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->integer('deleted_at')->unsigned()->nullable();
+            $table->integer('status')->default(0);
+
+            $table->integer('users_id')->unsigned();
 
             $table->timestamps();
+
+
+            $table->foreign('updated_by')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('deleted_by')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('deleted_at')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('users_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
 
 
         });

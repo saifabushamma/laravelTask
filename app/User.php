@@ -5,13 +5,18 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laratrust\Traits\LaratrustUserTrait;
+use Laravel\Passport\HasApiTokens;
+
 
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
     use Notifiable;
+    use HasApiTokens;
+
 
     /**
      * The attributes that are mass assignable.
@@ -42,8 +47,22 @@ class User extends Authenticatable
         $user->userName = $request['username'];
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
-        $user->image = $request['image'];
+        $user->image = User::storeFiles('image');
         $user->save();
+        return $user;
+
+    }
+    public static function storeFiles($fileName)
+    {
+        $request = request();
+        //The request function returns the current request instance or obtains an input item.
+        $file = $request->file($fileName);
+        $fileSaveAsName = time() . Auth::id() . "." .
+            $file->getClientOriginalExtension();
+        $upload_path = 'uploads/';
+        $file_url = $upload_path . $fileSaveAsName;
+        $file->move($upload_path, $fileSaveAsName);
+        return $file_url;
     }
 
 

@@ -28,9 +28,9 @@
                                     <div class="card-deck my-3">
                                         <div class="card">
                                             <img class="card-img-top" src='{{ asset('public/img/'.$item->image) }}' alt="Card image cap">
-                                            <span class="badgee badge-secondary">${{$item->price}}</span>
+                                            <span class="badgee badge-secondary">{{\App\Currency::ConvertFromUSD($item->price)}} {{\Session::get('currency')[0]->currency_en}}</span>
                                             <div class="card-body">
-                                                <a href="{{ route('viewItem', $item->itemID) }}" class="card-title text-primary nav-link"><p>{{$item->name}}</p></a>
+                                                <a href="{{ route('viewItem', $item->itemID) }}" class="card-title text-primary nav-link">{{$item->name}}</a>
                                                 <p class="card-text">{{$item->description}}</p>
                                                 <p class="card-text text-right"><small class="text-muted">{{date('Y-m-d', strtotime($item->created_at))}}</small></p>
                                             </div>

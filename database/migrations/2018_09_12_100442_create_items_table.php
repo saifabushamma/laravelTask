@@ -22,13 +22,28 @@ class CreateItemsTable extends Migration
             $table->text('description');
             $table->string('price');
             $table->string('country');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->integer('deleted_by')->unsigned()->nullable();
+            $table->integer('deleted_at')->unsigned()->nullable();
+            $table->integer('status')->default(0);
+
             $table->integer('users_id')->unsigned();
             $table->integer('category_categoryID')->unsigned();
             $table->timestamps();
 
-            $table->foreign('users_id')->references('id')->on('users')
+            $table->foreign('updated_by')->references('id')->on('users')
             ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('deleted_by')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('deleted_at')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+
+            $table->foreign('users_id')->references('id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
 
             $table->foreign('category_categoryID')->references('categoryID')->on('category')
                 ->onUpdate('cascade')->onDelete('cascade');

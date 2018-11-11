@@ -62,4 +62,8 @@ return [
     "loginW"=>'Login With',
 
     "adminpage"=>'Admin panel',
+    "createdat"=>'Created at',
+    "updateat"=>'Updated at',
+    "updateby"=>'Updated by',
+
 ];

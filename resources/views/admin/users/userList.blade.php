@@ -29,15 +29,38 @@
                                             <a href="{{route('edituser',$user->id)}}" class="btn btn-primary" >Edit</a>
                                             <a href="{{route('userdetails',$user->id)}}" class="btn btn-success">Details</a>
                                             <a href="{{route('deleteuser',$user->id)}}" class="btn btn-danger">Delete</a>
-                                        </td>
 
+                                            @if($user->status==0)
+
+                                                <div class="btn-group">
+
+                                                    <button type="button" style="width: 105px;"class="btn btn-success dropdown-toggle" data-toggle="dropdown">Activate
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+
+                                                    <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                        <li><a href="{{route('users_status',$user->id)}}" class="" >Deactivate</a></li>
+                                                    </ul>
+                                                </div>
+                                            @else
+                                                <div class="btn-group">
+                                                    <button type="button" style="width: 105px;" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Deactivate
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu"style="width: 105px;" role="menu">
+                                                        <li class=""><a href="{{route('users_status',$user->id)}}" >Activate</a></li>
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">Username</th>
-
                                     <th rowspan="1" colspan="1">Email</th>
                                     <th rowspan="1" colspan="1">Controls</th>
                                 </tr>

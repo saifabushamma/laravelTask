@@ -4,7 +4,7 @@
     <section class="content">
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">Item Details</h3>
+                <h3 class="box-title">User Details</h3>
             </div>
 
                     <div class="card border-primary">
@@ -39,13 +39,26 @@
 
                                 <tr class="color1">
                                     <td>
-                                        <label style="margin-left: 10px; margin-bottom: 10px">@lang('app.regDate'):</label>
+                                        <label style="margin-left: 10px; margin-bottom: 10px">@lang('app.createdat')</label>
                                     </td>
 
                                     <td>
                                         <span class="card-text ">:{{date('Y-m-d', strtotime($user->created_at))}}</span>
                                     </td>
                                 </tr>
+
+                                <tr class="color1">
+                                    <td>
+                                        <label style="margin-left: 10px; margin-bottom: 10px">@lang('app.updateat')</label>
+                                    </td>
+
+                                    <td>
+                                        <span class="card-text ">:{{date('Y-m-d', strtotime($user->updated_at))}}</span>
+                                    </td>
+                                </tr>
+
+
+
                             </table>
 
                             <div class="box-footer">
@@ -55,7 +68,5 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 @endsection

@@ -24,8 +24,8 @@ class Category extends Model
         return $this->hasMany('App\Item');
     }
     public static function category(){
-        return Category::select('name_' . App::getLocale() . "  " . "as name",
+        return Category::select('name_' . App::getLocale() . " " . "as name",
             "categoryID"
-            );
+            )->where("status", "=", '0');
     }
 }

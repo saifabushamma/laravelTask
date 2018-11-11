@@ -18,10 +18,14 @@ class CreateUsersTable extends Migration
             $table->charset = 'utf8';
             $table->collation = 'utf8_unicode_ci';
             $table->increments('id');
-            $table->string('userName') ->unique();
+            $table->string('userName')->unique();
             $table->string('password');
             $table->string('email')->unique();
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->integer('deleted_by')->nullable();
+            $table->dateTime('deleted_at')->nullable();
+            $table->integer('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

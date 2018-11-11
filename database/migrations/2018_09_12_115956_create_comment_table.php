@@ -19,6 +19,7 @@ class CreateCommentTable extends Migration
             $table->collation = 'utf8_unicode_ci';
             $table->increments('commentID');
             $table->text('comment');
+            $table->string('deleted_at');
             $table->integer('users_id')->unsigned();
             $table->integer('items_itemID')->unsigned();
             $table->timestamps();

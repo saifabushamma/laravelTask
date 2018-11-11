@@ -48,7 +48,7 @@
 
 
                             <div class="form-group">
-                                <img id="blah" src="{{ asset('public/img/'.$user->image) }}" alt="your image" name="image" style="border: solid 1px black;"  class="img-fluid img-thumbnail"/>
+                                <img id="blah" src="{{ asset($user->image) }}" alt="your image" name="image" style="border: solid 1px black;"  class="img-fluid img-thumbnail"/>
                             </div>
                             <!-- /.form-group -->
 
